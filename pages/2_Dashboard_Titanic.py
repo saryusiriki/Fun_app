@@ -1,6 +1,7 @@
 import streamlit as st
 from matplotlib import image
 import pandas as pd
+import numpy as np
 import plotly.express as px
 import os
 
@@ -22,5 +23,16 @@ st.image(img)
 df = pd.read_csv(DATA_PATH)
 st.dataframe(df)
 
+chart_data = pd.DataFrame(
+    np.random.randn(20, 3),
+    columns=["survived", "sex", "alive"])
+
+st.bar_chart(chart_data)
+
+chart_data = pd.DataFrame(
+    np.random.randn(20, 3),
+    columns=["survived", "sex", "alive"])
+
+st.line_chart(chart_data)
 
 
